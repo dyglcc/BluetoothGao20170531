@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/item_scores"></include>
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1"
+        android:cacheColorHint="@android:color/transparent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:visibility="gone"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_add"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/login_button"
+            android:text="添加学生"
+            android:textColor="@color/white"
+            android:textSize="14dp" />
+
+        <Button
+            android:id="@+id/btn_export"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/login_button"
+            android:text="导出学生信息表"
+            android:textColor="@color/white"
+            android:textSize="14dp" />
+
+        <Button
+            android:id="@+id/btn_import"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/login_button"
+            android:text="导入学生"
+            android:textColor="@color/white"
+            android:textSize="14dp" />
+
+        <Button
+            android:id="@+id/btn_view_result"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/login_button"
+            android:text="查看学生成绩"
+            android:textColor="@color/white"
+            android:textSize="14dp" />
+
+        <!--<Button-->
+        <!--android:id="@+id/btn_add_info"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="4dp"-->
+        <!--android:layout_weight="1"-->
+        <!--android:background="@drawable/login_button"-->
+        <!--android:text="删除学生信息"-->
+        <!--android:textColor="@color/white"-->
+        <!--android:textSize="16dp" />-->
+
+        <!--<Button-->
+        <!--android:id="@+id/btn_view_info"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="4dp"-->
+        <!--android:layout_marginRight="4dp"-->
+        <!--android:layout_weight="1"-->
+        <!--android:background="@drawable/login_button"-->
+        <!--android:text="查看学生信息"-->
+        <!--android:textColor="@color/white"-->
+        <!--android:textSize="16dp" />-->
+
+    </LinearLayout>
+</LinearLayout>

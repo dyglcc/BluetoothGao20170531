@@ -1,0 +1,39 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="layx400">400.0px</dimen>
+    <dimen name="layy240">240.0px</dimen>
+    <dimen name="layy60">60.0px</dimen>
+    <dimen name="layx60">60.0px</dimen>
+    <dimen name="layx100">100.0px</dimen>
+    <dimen name="layx18">18.0px</dimen>
+     <dimen name="layx31">31.0px</dimen>
+      <dimen name="layy40">40.0px</dimen>
+      <dimen name="layy33">33.0px</dimen>
+       <dimen name="layx210">210.0px</dimen>
+         <dimen name="layx40">40.0px</dimen>
+         <dimen name="layy53">53.0px</dimen>
+         <dimen name="layx250">250.0px</dimen>
+           <dimen name="layx47">47.0px</dimen>
+            <dimen name="layy13">13.0px</dimen>
+             <dimen name="layx75">75.0px</dimen>
+                 <dimen name="layx44">44.0px</dimen>
+                    <dimen name="layx38">38.0px</dimen>
+    <!--底部菜单-->
+
+    <dimen name="bottom_menu_btn_height">48dp</dimen>
+    <dimen name="bottom_menu_corner">6dp</dimen>
+    <dimen name="bottom_menu_btn_margin">2dp</dimen>
+    <dimen name="bottom_menu_btn_text_size">18dp</dimen>
+    <dimen name="bottom_menu_layout_margin">12dp</dimen>
+
+
+    <dimen name="login_size">24dp</dimen>
+    <dimen name="grid_text_size">14sp</dimen>
+
+
+    <!--android server-->
+    <dimen name="dp_16">16dp</dimen>
+</resources>

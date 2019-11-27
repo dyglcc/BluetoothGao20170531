@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@color/bgcolor"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/login_Background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="60dp">
+
+        <ImageView
+            android:id="@+id/img_brand"
+            android:visibility="invisible"
+            android:layout_width="240dp"
+            android:layout_height="80dp"
+            android:layout_marginBottom="56dp"
+            android:layout_toLeftOf="@+id/passwordstate"
+            android:background="@drawable/img_0499" />
+
+        <Button
+            android:id="@+id/btn_teacher"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/login_button"
+            android:text="教师登录"
+            android:textColor="@color/white"
+            android:textSize="30dp" />
+
+        <Button
+            android:id="@+id/btn_student"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/login_button"
+            android:text="学生登录"
+            android:textColor="@color/white"
+            android:textSize="30dp" />
+    </LinearLayout>
+</RelativeLayout>

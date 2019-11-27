@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="red">#FF0000</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="middengreen">#66CDAA</color>
+    <color name="yello">#FFFF00</color>
+    <color name="gold">#FFD700</color>
+    <color name="GhostWite">#F8F8FF</color>
+    <color name="darkgreen">#40E0D0</color>
+    <color name="ligntskyblue">#87CEFA</color>
+    <color name="ilove">#00EE76</color>
+    <color name="huise">#607B8B</color>
+    <color name="hit_color">#00000000</color>
+    <color name="chocolate">#D2691E</color>
+
+    <drawable name="darkgray">#808080</drawable>
+    <drawable name="white">#FFFFFF</drawable>
+    <drawable name="blue">#0000FF</drawable>
+
+    <color name="table_menu_chosse">#e500ff00</color>
+    <color name="table_menu_no_chosse">#00959595</color>
+    <color name="adjust_brightness_set_no">#ff505050</color>
+    <color name="adjust_brightness_set_yes">#ff00ffc7</color>
+    <color name="bgcolor">#d1d1d1</color>
+
+    <!--
+    <layer-list>
+        <item android:id="@android:id/background" android:drawable="@drawable/bg" /> 
+        <item android:id="@android:id/secondaryProgress" android:drawable="@drawable/secondary"/>
+        <item android:id="@android:id/progress" android:drawable="@drawable/progress"/>
+    </layer-list>
+    -->
+    <!--底部菜单-->
+    <color name="bottom_menu_btn_bg_common_color">#FFFFFF</color>
+    <color name="bottom_menu_btn_bg_press_color">#EEEEEE</color>
+    <color name="bottom_menu_btn_text_commom_color">#5B729A</color>
+    <color name="bottom_menu_btn_text_press_colot">#3F51B5</color>
+    <color name="bottom_menu_btn_text_stress_color">#FF0000</color>
+    <color name="bottom_menu_layout_color">#00000000</color>
+    <color name="change_team_text_color">#388eee</color>
+
+
+    <!--主题蓝色color-->
+    <color name="theme_blue">#1FB6FF</color>
+    <color name="theme_blue45">#731FB6FF</color>
+</resources>

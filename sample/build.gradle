@@ -1,0 +1,28 @@
+apply plugin: rootProject.ext.plugins.application
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    defaultConfig {
+        applicationId rootProject.ext.android.applicationId
+        minSdkVersion rootProject.ext.android.sampleMinSdkVersion
+        targetSdkVersion rootProject.ext.android.sampleTargetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+    }
+//    buildToolsVersion '26.0.2'
+}
+
+dependencies {
+    compile 'androidx.appcompat:appcompat:1.0.0'
+    compile 'com.google.android.material:material:1.0.0'
+    compile 'com.yanzhenjie.nohttp:nohttp:1.1.2'
+    compile 'com.yanzhenjie:loading:1.0.0'
+    implementation project(':andserver')
+}

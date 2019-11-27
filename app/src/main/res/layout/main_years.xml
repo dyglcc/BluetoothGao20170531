@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgcolor"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="年级管理"
+        android:textColor="#344c9c"
+        android:textSize="50dp" />
+
+    <GridView
+        android:id="@+id/grid"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:numColumns="4"
+        android:horizontalSpacing="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></GridView>
+</LinearLayout>

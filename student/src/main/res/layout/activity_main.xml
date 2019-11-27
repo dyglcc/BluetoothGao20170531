@@ -1,0 +1,121 @@
+<com.xiaobailong_student.widget.ListScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:id="@+id/listscroll"
+    android:layout_height="fill_parent"
+    android:fillViewport="true">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:autofit="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/layout_content"
+        android:layout_width="fill_parent"
+        android:orientation="vertical"
+        android:layout_height="fill_parent">
+
+        <me.grantland.widget.AutofitTextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:maxLines="1"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:singleLine="true"
+            android:textColor="@color/theme_blue"
+            android:textSize="50sp"
+            android:visibility="gone"
+            autofit:minTextSize="6sp" />
+
+
+        <LinearLayout
+            android:id="@+id/LL_OnOffContainer"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_name"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/Button_Ignition"
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:layout_width="0px"
+                android:background="@drawable/red"
+                android:text="@string/Button_Ignition" />
+            <!--
+                android:layout_marginRight="50dp"
+                android:layout_marginLeft="25dp"
+            -->
+
+            <Button
+                android:id="@+id/Button_Start"
+                android:layout_weight="1"
+                android:layout_width="0px"
+                android:layout_height="45dp"
+                android:background="@drawable/red"
+                android:text="@string/Button_Start" />
+            <!-- android:layout_marginRight="50dp" -->
+
+            <Button
+                android:id="@+id/Button_ShutDown"
+                android:layout_weight="1"
+                android:layout_width="0px"
+                android:layout_height="45dp"
+                android:background="@drawable/green"
+                android:text="@string/Button_ShutDown" />
+            <!-- android:layout_marginRight="25dp" -->
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LL_midlleContainer"
+            android:layout_width="fill_parent"
+            android:layout_height="0px"
+            android:layout_weight="1"
+            android:layout_below="@id/LL_OnOffContainer"
+            android:orientation="vertical">
+
+            <TabHost
+                android:id="@+id/tabhost"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <FrameLayout
+                    android:id="@android:id/tabcontent"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="40dp">
+
+                    <GridView
+                        android:id="@+id/GridView_TheFailurePointSet"
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+                        android:horizontalSpacing="10dp"
+                        android:scrollbars="none"
+                        android:stretchMode="columnWidth"
+                        android:verticalSpacing="10dp" />
+                </FrameLayout>
+
+                <TabWidget
+                    android:id="@android:id/tabs"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp" />
+            </TabHost>
+        </LinearLayout>
+
+        <include
+            android:id="@+id/layout_teacher"
+            layout="@layout/layout_teacher"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/LL_midlleContainer"
+            android:visibility="gone" />
+
+        <include
+            android:id="@+id/layout_student"
+            layout="@layout/layout_student"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/LL_midlleContainer"
+            android:visibility="gone" />
+    </LinearLayout>
+</com.xiaobailong_student.widget.ListScrollView>
