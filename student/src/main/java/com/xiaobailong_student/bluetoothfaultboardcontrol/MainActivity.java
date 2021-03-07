@@ -61,6 +61,8 @@ import java.io.InputStreamReader;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.ThreadPoolExecutor;
 
 import me.grantland.widget.AutofitTextView;
 
@@ -124,7 +126,7 @@ public class MainActivity extends BaseActivity implements OnClickListener,
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(com.xiaobailong_student.bluetoothfaultboardcontrol.R.layout.activity_main);
+        setContentView(R.layout.activity_main);
 //        dao = BaseApplication.app.daoSession.getExaminationDao();
         loginType = SpDataUtils.getLoginType();
         initSDcard();

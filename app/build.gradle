@@ -57,6 +57,7 @@ dependencies {
     debugImplementation project(':andserver')
 //    innerTestImplementation project(':andserver')
     releaseImplementation project(':andserver')
+    implementation project(':google_auth')
     implementation 'com.yanzhenjie:loading:1.0.0'
 
     implementation 'com.google.code.gson:gson:2.7'

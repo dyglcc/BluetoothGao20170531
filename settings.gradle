@@ -1,1 +1,4 @@
 include ':app', ':mylibrary', ':student', ':andserver', ':sample'
+include ':google_auth'
+include ':googleauthdemo'
+include ':googleauthdemo:gsubl_libary'
