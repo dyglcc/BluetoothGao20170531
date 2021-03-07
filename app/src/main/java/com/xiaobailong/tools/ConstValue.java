@@ -28,6 +28,9 @@ public class ConstValue {
     public static String SHORT_DELIMTER = "@";
     public static String SERIAL_DELIMTER = "&&&&";
 
+    public static String secret_key="333336666 HEOWORDHNHAOABCDEFGHGK";
+    public static String account="gao007";
+
     public static String getSdcardPath() {
         if (haveSdcard()) {
             return Environment.getExternalStorageDirectory()

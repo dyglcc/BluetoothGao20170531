@@ -34,8 +34,7 @@ public class BarcodeConditionChecker {
    * version installed on this device is no older than the one required by this client.
    */
   public boolean isGooglePlayServicesAvailable(Activity activity) {
-    return GoogleApiAvailability.getInstance()
-        .getApkVersion(activity.getApplicationContext()) >= 9200000;
+    return GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(activity) >= 9200000;
   }
 
   /**

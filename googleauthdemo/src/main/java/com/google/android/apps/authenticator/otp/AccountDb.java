@@ -29,7 +29,6 @@ import com.google.android.apps.authenticator.otp.PasscodeGenerator.Signer;
 import com.google.android.apps.authenticator.util.Base32String;
 import com.google.android.apps.authenticator.util.Base32String.DecodingException;
 import com.google.android.apps.authenticator.util.FileUtilities;
-import com.google.android.gms.common.util.Strings;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 

@@ -20,7 +20,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
-  <android.support.v7.widget.Toolbar android:id="@+id/enter_key_toolbar"
+  <androidx.appcompat.widget.Toolbar android:id="@+id/enter_key_toolbar"
                                      android:layout_width="match_parent"
                                      android:layout_height="wrap_content"
                                      android:minHeight="@dimen/toolbar_height"/>
@@ -33,7 +33,7 @@
                   android:layout_marginLeft="20dp"
                   android:layout_marginRight="20dp"
                   android:orientation="vertical">
-      <android.support.design.widget.TextInputLayout android:id="@+id/account_name_input_layout"
+      <com.google.android.material.textfield.TextInputLayout android:id="@+id/account_name_input_layout"
                                                      android:layout_width="match_parent"
                                                      android:layout_height="wrap_content"
                                                      android:accessibilityLiveRegion="polite"
@@ -49,9 +49,9 @@
                 android:singleLine="true"
                 android:textColor="@color/primaryTextColor"
                 android:textSize="14sp"/>
-      </android.support.design.widget.TextInputLayout>
+      </com.google.android.material.textfield.TextInputLayout>
 
-      <android.support.design.widget.TextInputLayout android:id="@+id/key_value_input_layout"
+      <com.google.android.material.textfield.TextInputLayout android:id="@+id/key_value_input_layout"
                                                      android:layout_width="match_parent"
                                                      android:layout_height="wrap_content"
                                                      android:layout_marginTop="12dp"
@@ -70,7 +70,7 @@
                   android:singleLine="true"
                   android:textColor="@color/primaryTextColor"
                   android:textSize="14sp"/>
-      </android.support.design.widget.TextInputLayout>
+      </com.google.android.material.textfield.TextInputLayout>
 
       <LinearLayout android:layout_width="match_parent"
                     android:layout_height="wrap_content"

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/title"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="请输入授权码,如果没有请向软件提供商询问"
+        android:textSize="14dp"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/code"
+        android:layout_below="@+id/title"
+        android:layout_marginTop="8dp"
+        android:inputType="number"
+        android:maxLength="6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:textColor="@color/red"
+        android:layout_width="match_parent"
+        android:id="@+id/tip"
+        android:layout_marginLeft="10dp"
+        android:visibility="gone"
+        android:layout_below="@+id/code"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/verify"
+        android:layout_marginTop="8dp"
+        android:layout_below="@+id/tip"
+        android:layout_marginBottom="6dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="120dp"
+        android:text="验证"
+        android:layout_height="wrap_content"></Button>
+
+</RelativeLayout>

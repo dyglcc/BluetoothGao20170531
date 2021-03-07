@@ -19,7 +19,7 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical">
-  <android.support.v7.widget.Toolbar android:id="@+id/authenticator_toolbar"
+  <androidx.appcompat.widget.Toolbar android:id="@+id/authenticator_toolbar"
                                      android:layout_width="match_parent"
                                      android:layout_height="wrap_content"
                                      android:background="?attr/colorPrimary"
@@ -82,7 +82,7 @@
           android:layout_width="match_parent"
           android:layout_height="@dimen/toolbar_shadow_height"
           android:background="@drawable/toolbar_shadow"/>
-    <android.support.design.widget.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_account_fab"
         style="?attr/fabButtonAddAccount"
         android:layout_width="wrap_content"

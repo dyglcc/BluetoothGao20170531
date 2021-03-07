@@ -22,6 +22,7 @@ import android.util.Log;
 import com.google.android.apps.authenticator.otp.TotpClock;
 import com.google.android.apps.authenticator.util.Utilities;
 import com.google.android.apps.authenticator.util.concurrent.RunOnThisLooperThreadExecutor;
+import com.google.common.base.Throwables;
 import com.google.common.util.concurrent.FutureCallback;
 import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.ListenableFutureTask;
@@ -192,7 +193,7 @@ public class SyncNowController {
               finish(Result.ERROR_CONNECTIVITY_ISSUE);
             } else {
               // Blow up
-              throwIfUnchecked(e);
+//              Throwables.throwIfUnchecked(e);
               throw new RuntimeException(e);
             }
           }

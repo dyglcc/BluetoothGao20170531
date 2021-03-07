@@ -20,7 +20,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.google.android.apps.authenticator.otp.AccountDb.AccountIndex;
-import com.google.android.gms.common.internal.Objects;
+import com.google.common.base.Objects;
 
 import androidx.annotation.Nullable;
 import androidx.core.util.Preconditions;

@@ -8,6 +8,7 @@ import android.text.Editable;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -17,12 +18,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.display.google_auth.Checker;
 import com.xiaobailong.activity.MenuActivity;
 import com.xiaobailong.base.BaseApplication;
 import com.xiaobailong.bean.Scores;
 import com.xiaobailong.bean.ScoresDao;
 import com.xiaobailong.bean.Student;
 import com.xiaobailong.bean.StudentDao;
+import com.xiaobailong.tools.ConstValue;
 import com.xiaobailong.tools.SpDataUtils;
 
 import java.io.BufferedReader;

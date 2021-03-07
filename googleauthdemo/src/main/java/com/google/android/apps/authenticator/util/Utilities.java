@@ -190,7 +190,7 @@ public class Utilities {
       }
     }
 
-    return code.substring(0, 3) + " " + code.substring(3, 6);
+    return code;
   }
 
   /**

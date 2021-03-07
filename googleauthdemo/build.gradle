@@ -39,15 +39,18 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-    implementation 'com.google.android.gms:play-services:+'
-    implementation 'com.google.android.gms:play-services-vision-common:+'
-    implementation 'com.google.android.gms:play-services-vision:+'
+    implementation 'com.google.android.gms:play-services:12.0.1'
+    implementation 'com.google.android.gms:play-services-vision-common:12.0.1'
+    implementation 'com.google.android.gms:play-services-vision:12.0.1'
     implementation 'androidx.multidex:multidex:2.0.1'
     implementation 'com.google.guava:guava:18.0'
+//    implementation group: 'com.google.guava', name: 'guava-base', version: 'r03'
 
 
 
-    implementation 'com.google.dagger:dagger:2.32'
-    annotationProcessor 'com.google.dagger:dagger-compiler:2.32'
+//    implementation 'com.google.dagger:dagger:2.32'
+    implementation 'com.squareup.dagger:dagger:1.2.4'
+//    annotationProcessor 'com.google.dagger:dagger-compiler:2.32'
+    annotationProcessor 'com.squareup.dagger:dagger-compiler:1.2.4'
     implementation project(":googleauthdemo:gsubl_libary")
 }

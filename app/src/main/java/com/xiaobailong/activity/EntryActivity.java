@@ -2,6 +2,7 @@ package com.xiaobailong.activity;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -11,9 +12,16 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.Window;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.display.google_auth.Checker;
 import com.xiaobailong.base.BaseApplication;
 import com.xiaobailong.bean.Examination;
 import com.xiaobailong.bluetoothfaultboardcontrol.BaseActivity;
@@ -24,10 +32,12 @@ import com.xiaobailong.tools.ConstValue;
 import com.xiaobailong.tools.SpDataUtils;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -40,7 +50,7 @@ import pub.devrel.easypermissions.EasyPermissions;
  * Created by dongyuangui on 2017/6/1.
  */
 
-public class EntryActivity extends BaseActivity implements EasyPermissions.PermissionCallbacks{
+public class EntryActivity extends BaseActivity implements EasyPermissions.PermissionCallbacks {
     private static final int REQUEST_CODE = 111;
     private static final int REQUEST_CAMERA_PERM = 101;
     @BindView(R.id.btn_teacher)
@@ -52,15 +62,16 @@ public class EntryActivity extends BaseActivity implements EasyPermissions.Permi
     private String savePath = null;
     private boolean hasSdcard = false;
     private String companyBrandFileName = "brand.png";
-    public static  String backgroundFileName = "background.jpg";
+    public static String backgroundFileName = "background.jpg";
 
     ImageView rl = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_entry);
-        SharedPreferences sharedPreferences = this.getSharedPreferences(ConstValue.SP_NAME,0);
-        int orentation = sharedPreferences.getInt(ConstValue.xbl_orentation,1);
+        SharedPreferences sharedPreferences = this.getSharedPreferences(ConstValue.SP_NAME, 0);
+        int orentation = sharedPreferences.getInt(ConstValue.xbl_orentation, 1);
         setRequestedOrientation(orentation);
         ButterKnife.bind(this);
 //        if (Build.VERSION.SDK_INT >= 23) {
@@ -98,6 +109,22 @@ public class EntryActivity extends BaseActivity implements EasyPermissions.Permi
 
     public static void studentLogin(Context context) {
 
+        boolean check = check();
+        if (!check) {
+            showAuth(context, new GoOn() {
+                @Override
+                public void goOn() {
+                    login_student(context);
+                }
+            });
+        } else {
+            login_student(context);
+        }
+
+
+    }
+
+    public static void login_student(Context context) {
         SpDataUtils.saveLoginType(SpDataUtils.TYPE_STUDENT);
         Intent intent = new Intent(context, LoginActivity.class);
         intent.putExtra("type", SpDataUtils.TYPE_STUDENT);
@@ -106,6 +133,21 @@ public class EntryActivity extends BaseActivity implements EasyPermissions.Permi
 
     @OnClick(R.id.btn_teacher)
     public void teacherClick() {
+        boolean check = check();
+        if (!check) {
+            showAuth(this, new GoOn() {
+                @Override
+                public void goOn() {
+                    loginTeacher();
+                }
+            });
+        } else {
+            loginTeacher();
+        }
+
+    }
+
+    public void loginTeacher() {
         SpDataUtils.saveLoginType(SpDataUtils.TYPE_TEACHER);
         Intent intent = new Intent(EntryActivity.this, LoginActivity.class);
         intent.putExtra("type", SpDataUtils.TYPE_TEACHER);
@@ -162,6 +204,7 @@ public class EntryActivity extends BaseActivity implements EasyPermissions.Permi
             }
         }
     }
+
     private void initPermission() {
         //检查权限
         String[] permissions = CheckPermissionUtils.checkPermission(this);
@@ -173,6 +216,7 @@ public class EntryActivity extends BaseActivity implements EasyPermissions.Permi
             ActivityCompat.requestPermissions(this, permissions, 100);
         }
     }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -180,8 +224,9 @@ public class EntryActivity extends BaseActivity implements EasyPermissions.Permi
         // Forward results to EasyPermissions
         EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
     }
+
     @AfterPermissionGranted(101)
-    private void  cameraTask() {
+    private void cameraTask() {
         if (EasyPermissions.hasPermissions(this, Manifest.permission.CAMERA)) {
             // Have permission, do the thing!
             initUI();
@@ -195,13 +240,71 @@ public class EntryActivity extends BaseActivity implements EasyPermissions.Permi
 
     @Override
     public void onPermissionsGranted(int requestCode, @NonNull List<String> perms) {
-        Log.i("SelectServerActivity","执行onPermissionsGranted");
+        Log.i("SelectServerActivity", "执行onPermissionsGranted");
+        boolean re = check();
+        if (!re) {
+            showAuth(EntryActivity.this, new GoOn() {
+                @Override
+                public void goOn() {
+
+                }
+            });
+        }
+
 //    Toast.makeText(this, "执行onPermissionsGranted()...", Toast.LENGTH_SHORT).show()
+    }
+
+    private static File getCheckFile() {
+        return new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/.auth_bluetooth");
+    }
+
+    public static boolean check() {
+
+        return getCheckFile().exists();
+    }
+
+    interface GoOn {
+        void goOn();
+    }
+
+    public static void showAuth(Context context, GoOn goon) {
+        Dialog dialog = new Dialog(context);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCancelable(false);
+        View viewParent = LayoutInflater.from(context).inflate(R.layout.auth, null);
+        dialog.setContentView(viewParent);
+
+
+        viewParent.findViewById(R.id.verify).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Checker test = new Checker();
+                EditText editText = viewParent.findViewById(R.id.code);
+                boolean result = test.verifyCode(editText.getText().toString().trim(), context, ConstValue.secret_key);
+                if (result) {
+                    try {
+                        getCheckFile().createNewFile();
+                    } catch (IOException e) {
+                        Toast.makeText(context, "出错了！请先授权app读写权限", Toast.LENGTH_LONG).show();
+                    }
+                    dialog.dismiss();
+                    goon.goOn();
+
+                } else {
+                    TextView tip = viewParent.findViewById(R.id.tip);
+                    tip.setVisibility(View.VISIBLE);
+                    editText.setText("");
+                    tip.setText("验证码错误,请重新输入");
+                }
+            }
+        });
+        dialog.setCancelable(false);
+        dialog.show();
     }
 
     @Override
     public void onPermissionsDenied(int requestCode, @NonNull List<String> perms) {
-        Log.i("SelectServerActivity","执行onPermissionsGranted");
+        Log.i("SelectServerActivity", "执行onPermissionsGranted");
         if (EasyPermissions.somePermissionPermanentlyDenied(this, perms)) {
             new AppSettingsDialog.Builder(EntryActivity.this)
                     .setRationale("当前App需要申请sdcard的读写权限,需要打开设置页面么?")

@@ -75,7 +75,7 @@
                       android:layout_alignParentRight="true"
                       android:layout_gravity="center_vertical"
                       android:orientation="horizontal">
-          <android.support.v7.widget.AppCompatImageButton android:id="@+id/next_otp"
+          <androidx.appcompat.widget.AppCompatButton android:id="@+id/next_otp"
                                                           style="?attr/accountListWithVerificationCodesRowRefreshButton"
                                                           android:layout_width="24dp"
                                                           android:layout_height="24dp"
